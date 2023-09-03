@@ -1,0 +1,108 @@
+body {
+    color:#fff;
+    background-image:url(../sign-up/img/tabs-4.jpg );
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-color: blue !important; */
+    font-family: 'Roboto', sans-serif;
+    overflow-y: hidden;
+}
+
+
+.return_home #logo{
+    width: 60px;
+    height: 60px;
+}
+
+.form-control{
+    height: 40px;
+    background: #e2e2e2;
+    box-shadow: none !important;
+    border: none;
+    /* border-radius: 50px; */
+}
+
+.form-control input{
+    outline: none;
+    border: none;
+}
+
+.form-control:focus{
+    background: #e2e2e2;
+    border: 0;
+}
+.form-control, .btn{        
+    border-radius: 3px;
+}
+.signup-form{
+    width:370px;
+    margin: 10px auto;
+}
+.signup-form form{
+    color: #999;
+    border-radius: 3px;
+    /* margin-bottom: 15px; */
+    background: #fff;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    border-radius: 10px;
+}
+.signup-form h2 {
+    color: #333;
+    font-weight: bold;
+    margin-top: 0;
+}
+.signup-form hr {
+    margin: 0 -30px 20px;
+}    
+.signup-form .form-group{
+    margin-bottom: 5px;
+}
+.signup-form input[type="checkbox"]{
+    margin-top: 3px;
+}
+.signup-form .row div:first-child{
+    padding-right: 10px;
+}
+.signup-form .row div:last-child{
+    padding-left: 10px;
+}
+.signup-form .btn{        
+    font-size: 16px;
+    font-weight: bold;
+    background: #e76668;
+    border: none;
+    width:100% ;
+
+}
+.signup-form .btn:hover, .signup-form .btn:focus{
+    background: #e76668 !important;
+    outline: none;
+}
+.signup-form a{
+    color: #fff;
+    text-decoration: underline;
+}
+.signup-form a:hover{
+    text-decoration: none;
+}
+.signup-form form a{
+    color: #e76668;
+    text-decoration: none;
+}	
+.signup-form form a:hover{
+    text-decoration: underline;
+}
+.signup-form .hint-text {
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+.hint-text a{
+    /* color: #e76668; */
+    font-weight: 900;
+}
+.hint-text a:hover{
+    /* color: #fff; */
+    border-bottom: 1px solid #fff;
+}
