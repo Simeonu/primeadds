@@ -4,6 +4,7 @@ class Model{
 
      public function connection(){
         return new Mysqli("localhost", "root", "", "prime_adds");
+      //   return new Mysqli("localhost", "primeadd_primeadds", "Simeon&13890", "primeadd_primeadds");
      }
 
      public function input_value($data){

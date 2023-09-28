@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="index.css">
+<link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
 <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
 <link href="sign-up/img/my_logo.png" rel="icon">
@@ -41,9 +41,13 @@
 			<label class="checkbox-inline"><input type="checkbox" > Remember Me
 		</div>
 
+		<div class="forgot_password">
+			<a href="../forgot_password/">Forgot your password?</a>
+        </div>
+
         <div class="reply"></div>
 		<div class="form-group login_button">
-            <button type="submit" class="btn btn-primary btn-lg">Login</button>
+            <button type="submit" class="btn btn-primary btn-lg w-100">Login</button>
         </div>
 		<div class="hint-text sign_up">Don't have an account? <a href="../sign-up/">Sign-up here</a></div>
     </form>

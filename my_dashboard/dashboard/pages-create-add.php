@@ -249,7 +249,7 @@ session_start();
         
         <div class="col-xl-6" id="subscribers">
           <div class="card p-4">
-            <form action="" method="post" class="get_subscribers" enctype="multipart/form-data">
+            <form action="" method="post" class="get_subscribers" id="paymentForm" enctype="multipart/form-data">
               <div class="row gy-4">
 
                 <h3>Get more Subscribers</h3>
@@ -297,12 +297,43 @@ session_start();
 
                 <div class="col-md-12 text-center">
                   <div class="response"></div> 
-                  <button type="submit" class="btn btn-primary w-100">Submit</button>
+                  <button type="submit" onclick="payWithPaystack()" class="btn btn-primary w-100"> Make payment </button>
                 </div>
 
               </div>
             </form>
           </div>
+
+          <script src="https://js.paystack.co/v1/inline.js"></script>
+
+          <script>
+            const paymentForm = document.getElementById('paymentForm');
+              paymentForm.addEventListener("submit", payWithPaystack, false);
+
+              function payWithPaystack(e) {
+                e.preventDefault();
+                // const amount = document.getElementById('select_amount').value * 1000;
+
+                let amount = document.getElementById('select_amount').value;
+                amount     = Number(amount.split('-')[2]);
+                let handler = PaystackPop.setup({
+                  key   : 'pk_test_771a64a623b6e0646ef5e8b8c99c3dce2a69c8af', // Replace with your public key
+                  email : document.getElementById("email").value,
+                  amount: amount,
+                  ref: 'primeadds-'+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+                  // label: "Optional string that replaces customer email"
+                  onClose: function(){
+                    alert('Window closed.');
+                  },
+                  callback: function(response){
+                    location.href = './pages-create-add.php?';
+                  }
+                });
+
+                handler.openIframe();
+              }
+
+          </script>
 
         </div>
 
@@ -358,12 +389,44 @@ session_start();
                 <div class="response_two"></div>
                 <!-- <div class="sent-message">Your message has been sent. Thank you!</div> -->
 
-                <button type="submit"  class="btn btn-primary w-100">Submit</button>
+                <button type="submit" onclick="payWithPaystack()" class="btn btn-primary w-100"> Make Payment </button>
               </div>
 
             </div>
           </form>
         </div>
+
+       
+        <script src="https://js.paystack.co/v1/inline.js"></script>
+
+          <script>
+            const paymentForm = document.getElementById('more_likes');
+              paymentForm.addEventListener("submit", payWithPaystack, false);
+
+              function payWithPaystack(e) {
+                e.preventDefault();
+                // const amount = document.getElementById('select_amount').value * 1000;
+
+                let amount = document.getElementById('select_amount_two').value * 1000;
+                amount     = Number(amount.split('-')[2]);
+                let handler = PaystackPop.setup({
+                  key   : 'pk_test_771a64a623b6e0646ef5e8b8c99c3dce2a69c8af', // Replace with your public key
+                  email : document.getElementById("email_two").value,
+                  amount: amount,
+                  ref: 'primeadds-'+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+                  // label: "Optional string that replaces customer email"
+                  onClose: function(){
+                    alert('Window closed.');
+                  },
+                  callback: function(response){
+                    location.href = './pages-create-add.php?';
+                  }
+                });
+
+                handler.openIframe();
+              }
+
+          </script>
 
        </div>
 
@@ -371,7 +434,7 @@ session_start();
 
         <div class="col-xl-6" id="website_views">
           <div class="card p-4">
-            <form action="" method="post" class="website_views">
+            <form action="" method="post" id="more_likes" class="website_views">
               <div class="row gy-4">
 
                 <h3>Get more Website views</h3>
@@ -420,12 +483,42 @@ session_start();
                   <div class="col-md-12 text-center">
                   <div class="loading">Loading</div> 
                   <div class="response_three"></div>
-                  <button type="submit"  class="btn btn-primary w-100">Submit</button>
+                  <button type="submit"  class="btn btn-primary w-100"> Make Payment </button>
                 </div>
 
               </div>
             </form>
           </div>
+
+          <script src="https://js.paystack.co/v1/inline.js"></script>
+          <script>
+            const paymentForm = document.getElementById('more_likes');
+              paymentForm.addEventListener("submit", payWithPaystack, false);
+
+              function payWithPaystack(e) {
+                e.preventDefault();
+                // const amount = document.getElementById('select_amount').value * 1000;
+
+                let amount = document.getElementById('select_amount_three').value;
+                amount     = Number(amount.split('-')[2]);
+                let handler = PaystackPop.setup({
+                  key   : 'pk_test_771a64a623b6e0646ef5e8b8c99c3dce2a69c8af', // Replace with your public key
+                  email : document.getElementById("email").value,
+                  amount: amount,
+                  ref: 'primeadds-'+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+                  // label: "Optional string that replaces customer email"
+                  onClose: function(){
+                    alert('Window closed.');
+                  },
+                  callback: function(response){
+                    location.href = './pages-create-add.php';
+                  }
+                });
+
+                handler.openIframe();
+              }
+
+          </script>
 
         </div>
 
@@ -449,23 +542,23 @@ session_start();
 
 
                 <div class="col-md-12">
-                  <input type="text" id="business_name_four" class="form-control" name="business-name" placeholder="Business name" required>
+                  <input type="text" id="business_name_four" class="form-control" name="business_name_four" placeholder="Business name" required>
                 </div>
 
                 <div class="col-md-12">
-                  <input type="text" id="whatsapp_number_four" class="form-control" name="Whatsapp-number" placeholder="WhatsApp number" required>
+                  <input type="text" id="whatsapp_number_four" class="form-control" name="whatsapp_number_four" placeholder="WhatsApp number" required>
                 </div>
 
                 <div class="col-md-12">
-                  <input type="text" id="primary_text_four" class="form-control" name="primary-text" placeholder="Primary Text (your headline for the add)" required>
+                  <input type="text" id="primary_text_four" class="form-control" name="primary_text_four" placeholder="Primary Text (your headline for the add)" required>
                 </div>
 
                 <div class="col-md-12">
-                  <input type="email" id="email_four" class="form-control" name="email" placeholder="email" required>
+                  <input type="email" id="email_four" class="form-control" name="email_four" placeholder="email" required>
                 </div>
 
                 <div class="col-md-12">
-                  <input type="file" id="image_four" class="form-control" name="image" placeholder="upload your add image here" required>
+                  <input type="file" id="image_four" class="form-control" name="image_four" placeholder="upload your add image here" required>
                 </div>
 
                 <!-- <div class="col-md-12">
@@ -475,7 +568,7 @@ session_start();
                 <div class="col-md-12 text-center">
                   <div class="loading">Loading</div> 
                   <div class="response_four"></div>
-                  <button type="submit"  class="btn btn-primary w-100">Submit</button>
+                  <button type="submit"  class="btn btn-primary w-100"> Make payment </button>
                 </div>
 
               </div>
@@ -691,24 +784,19 @@ session_start();
                                </div>
                              </div>`;  
 
-      const data = {
-        
-        select_amount   : document.getElementById('select_amount').value,
-        business_name   : document.getElementById('business_name').value,
-        whatsapp_number : document.getElementById('whatsapp_number').value,
-        primary_text    : document.getElementById('primary_text').value,
-        email           : document.getElementById('email').value,
-        image           : document.getElementById('image').value
-      };
+        const formData_four = new FormData();
+        formData_four.append("add_image_four",         document.getElementById('image_four').files[0]);
+        formData_four.append("select_amount_four",     document.getElementById('select_amount_four').value);
+        formData_four.append("business_name_four",     document.getElementById('business_name_four').value);
+        formData_four.append("whatsapp_number_four",   document.getElementById('whatsapp_number_four').value);
+        formData_four.append("email_four",             document.getElementById('email_four').value);
+        formData_four.append("primary_text_four",      document.getElementById('primary_text_four').value);
 
       const sendData = JSON.stringify(data);
 
       fetch("../../api/whatsapp_messages", {
-        methid:"POST",
-        headers:{
-          "Content-Type": "application/json()"
-        },
-        body:sendData
+        method:"POST",
+        body:formData_four
       })
 
       .then (call => call.json())
