@@ -315,7 +315,7 @@ session_start();
                 // const amount = document.getElementById('select_amount').value * 1000;
 
                 let amount = document.getElementById('select_amount').value;
-                amount     = Number(amount.split('-')[2]);
+                amount     = Number(amount.split('-')[2]) * 100;
                 let handler = PaystackPop.setup({
                   key   : 'pk_test_771a64a623b6e0646ef5e8b8c99c3dce2a69c8af', // Replace with your public key
                   email : document.getElementById("email").value,
@@ -326,7 +326,7 @@ session_start();
                     alert('Window closed.');
                   },
                   callback: function(response){
-                    location.href = './pages-create-add.php?';
+                    location.href = './verify.php?tref='+response.reference+"&txamount="+amount;
                   }
                 });
 
@@ -341,21 +341,21 @@ session_start();
         
        <div class="col-xl-6" id="more_likes">
         <div class="card p-4">
-          <form action="" method="post" class="more_likes">
+          <form action="" method="post" id="likes" class="more_likes">
             <div class="row gy-4">
 
               <h3>Get more page likes</h3>
               <div class="col-md-12">
                <select name="Get-more views" id="select_amount_two" class="form-control form-control-lg w-100">
-                <option value="100-likes">100 likes (3 days)   > &#8358;5000 </option>
-                <option value="500-likes">500 likes (5 days)  > &#8358;1500</option>
-                <option value="1000-likes">1000 likes (1 weeek)  >  &#8358;20000</option>
-                <option value="1500-likes">1500 likes (1 week)  >  &#8358;23000</option>
-                <option value="2000-likes">2000 likes (2 weeeks)  >  &#8358;28000</option>
-                <option value="5000-likes">5000 likes (3 weeeks)  >  &#8358;35000</option>
-                <option value="10000-likes">10000 likes (1 month) >  &#8358;45000</option>
-                <option value="20000-likes">20000 likes (2 months) >  &#8358;70000</option>
-                <option value="30000-likes">30000 likes (3 months) >  &#8358;100000</option>
+                <option value="100-likes-5000">100 likes (3 days)   > &#8358;5000 </option>
+                <option value="500-likes-1500">500 likes (5 days)  > &#8358;15000</option>
+                <option value="1000-likes-20000">1000 likes (1 weeek)  >  &#8358;20000</option>
+                <option value="1500-likes-23000">1500 likes (1 week)  >  &#8358;23000</option>
+                <option value="2000-likes-28000">2000 likes (2 weeeks)  >  &#8358;28000</option>
+                <option value="5000-likes-35000">5000 likes (3 weeeks)  >  &#8358;35000</option>
+                <option value="10000-likes-45000">10000 likes (1 month) >  &#8358;45000</option>
+                <option value="20000-likes-70000">20000 likes (2 months) >  &#8358;70000</option>
+                <option value="30000-likes-100000">30000 likes (3 months) >  &#8358;100000</option>
                </select>
               </div>
 
@@ -399,34 +399,34 @@ session_start();
        
         <script src="https://js.paystack.co/v1/inline.js"></script>
 
-          <script>
-            const paymentForm = document.getElementById('more_likes');
-              paymentForm.addEventListener("submit", payWithPaystack, false);
+        <script>
+          const get_likes = document.getElementById('likes');
+          get_likes.addEventListener("submit", payWithPaystack, false);
 
-              function payWithPaystack(e) {
-                e.preventDefault();
-                // const amount = document.getElementById('select_amount').value * 1000;
+            function payWithPaystack(e) {
+              e.preventDefault();
+              // const amount = document.getElementById('select_amount').value * 1000;
 
-                let amount = document.getElementById('select_amount_two').value * 1000;
-                amount     = Number(amount.split('-')[2]);
-                let handler = PaystackPop.setup({
-                  key   : 'pk_test_771a64a623b6e0646ef5e8b8c99c3dce2a69c8af', // Replace with your public key
-                  email : document.getElementById("email_two").value,
-                  amount: amount,
-                  ref: 'primeadds-'+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
-                  // label: "Optional string that replaces customer email"
-                  onClose: function(){
-                    alert('Window closed.');
-                  },
-                  callback: function(response){
-                    location.href = './pages-create-add.php?';
-                  }
-                });
+              let amount = document.getElementById('select_amount_two').value;
+              amount     = Number(amount.split('-')[2]) * 100;
+              let handler = PaystackPop.setup({
+                key   : 'pk_test_771a64a623b6e0646ef5e8b8c99c3dce2a69c8af', // Replace with your public key
+                email : document.getElementById("email_two").value,
+                amount: amount,
+                ref: 'primeadds-'+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+                // label: "Optional string that replaces customer email"
+                onClose: function(){
+                  alert('Window closed.');
+                },
+                callback: function(response){
+                  location.href = './verify.php?tref='+response.reference+"&txamount="+amount;
+                }
+              });
 
-                handler.openIframe();
-              }
+              handler.openIframe();
+            }
 
-          </script>
+        </script>
 
        </div>
 
@@ -434,21 +434,21 @@ session_start();
 
         <div class="col-xl-6" id="website_views">
           <div class="card p-4">
-            <form action="" method="post" id="more_likes" class="website_views">
+            <form action="" method="post" id="more_views" class="website_views">
               <div class="row gy-4">
 
                 <h3>Get more Website views</h3>
                 <div class="col-md-12">
                  <select name="Get-more views" id="select_amount_three" class="form-control form-control-lg w-100">
-                  <option value="100-views">100 views (3 days)   > &#8358;5000 </option>
-                  <option value="500-views">500 views (5 days)  > &#8358;1500</option>
-                  <option value="1000-views">1000 views (1 weeek)  >  &#8358;20000</option>
-                  <option value="1500-views">1500 views (1 week)  >  &#8358;23000</option>
-                  <option value="2000-views">2000 views (2 weeeks)  >  &#8358;28000</option>
-                  <option value="5000-views">5000 views (3 weeeks)  >  &#8358;35000</option>
-                  <option value="10000-views">10000 views (1 month) >  &#8358;45000</option>
-                  <option value="20000-views">20000 views (2 months) >  &#8358;70000</option>
-                  <option value="30000-views">30000 views (3 months) >  &#8358;100000</option>
+                  <option value="100-view-5000">100 views (3 days)   > &#8358;5000 </option>
+                  <option value="500-views-15000">500 views (5 days)  > &#8358;15000</option>
+                  <option value="1000-views-20000">1000 views (1 weeek)  >  &#8358;20000</option>
+                  <option value="1500-views-23000">1500 views (1 week)  >  &#8358;23000</option>
+                  <option value="2000-views-28000">2000 views (2 weeeks)  >  &#8358;28000</option>
+                  <option value="5000-views-35000">5000 views (3 weeeks)  >  &#8358;35000</option>
+                  <option value="10000-views-45000">10000 views (1 month) >  &#8358;45000</option>
+                  <option value="20000-views-70000">20000 views (2 months) >  &#8358;70000</option>
+                  <option value="30000-views-100000">30000 views (3 months) >  &#8358;100000</option>
                  </select>
                 </div>
 
@@ -479,9 +479,8 @@ session_start();
 
                 <!-- <div class="col-md-12">
                   <textarea class="form-control" name="message" rows="6" placeholder="Uplod add image" required></textarea>
-                </div> --> <br> <br> <br> <br><br> <br>
+                </div> --> <br> <br>
                   <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div> 
                   <div class="response_three"></div>
                   <button type="submit"  class="btn btn-primary w-100"> Make Payment </button>
                 </div>
@@ -492,18 +491,18 @@ session_start();
 
           <script src="https://js.paystack.co/v1/inline.js"></script>
           <script>
-            const paymentForm = document.getElementById('more_likes');
-              paymentForm.addEventListener("submit", payWithPaystack, false);
+            const get_views = document.getElementById('more_views');
+            get_views.addEventListener("submit", payWithPaystack, false);
 
               function payWithPaystack(e) {
                 e.preventDefault();
                 // const amount = document.getElementById('select_amount').value * 1000;
 
                 let amount = document.getElementById('select_amount_three').value;
-                amount     = Number(amount.split('-')[2]);
+                amount     = Number(amount.split('-')[2]) * 100;
                 let handler = PaystackPop.setup({
                   key   : 'pk_test_771a64a623b6e0646ef5e8b8c99c3dce2a69c8af', // Replace with your public key
-                  email : document.getElementById("email").value,
+                  email : document.getElementById("email_three").value,
                   amount: amount,
                   ref: 'primeadds-'+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
                   // label: "Optional string that replaces customer email"
@@ -511,7 +510,7 @@ session_start();
                     alert('Window closed.');
                   },
                   callback: function(response){
-                    location.href = './pages-create-add.php';
+                    location.href = './verify.php?tref='+response.reference+"&txamount="+amount;
                   }
                 });
 
@@ -527,15 +526,17 @@ session_start();
         
         <div class="col-xl-6" id="more_message">
           <div class="card p-4">
-            <form action="" method="post" class="whatsapp_messages">
+            <form action="" method="post" id="messages" class="whatsapp_messages">
               <div class="row gy-4">
 
                 <h3>Get more messages</h3>
                 <div class="col-md-12">
                  <select name="Get-more views" id="select_amount_four" class="form-control form-control-lg w-100">
-                  <option value="100-whatsapp-messages">100 messages (3 days)   > &#8358;5000 </option>
-                  <option value="500-whatsapp-messages">500 messages (5 days)  > &#8358;1500</option>
-                  <option value="1000-whatsapp-messages">1000 messages (1 weeek)  >  &#8358;20000</option>
+                  <option value="100-messages-5000">100 messages (3 days)   > &#8358;5000 </option>
+                  <option value="500-messages-15000">500 messages (5 days)  > &#8358;1500</option>
+                  <option value="1000-messages-20000">1000 messages (1 weeek)  >  &#8358;20000</option>
+                  <option value="10000-messages-700000">1000 messages (1 weeek)  >  &#8358;20000</option>
+                  <option value="20000-messages-110000">1000 messages (1 weeek)  >  &#8358;20000</option>
           
                  </select>
                 </div>
@@ -566,15 +567,43 @@ session_start();
                 </div> -->
 
                 <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div> 
                   <div class="response_four"></div>
-                  <button type="submit"  class="btn btn-primary w-100"> Make payment </button>
+                  <button type="submit"  onclick="payWithPaystack()"class="btn btn-primary w-100"> Make payment </button>
                 </div>
 
               </div>
             </form>
           </div>
 
+          <script src="https://js.paystack.co/v1/inline.js"></script>
+          <script>
+            const get_message = document.getElementById('messages');
+            get_message                                                                                                                                            .addEventListener("submit", payWithPaystack, false);
+
+              function payWithPaystack(e) {
+                e.preventDefault();
+                // const amount = document.getElementById('select_amount').value * 1000;
+
+                let amount = document.getElementById('select_amount_four').value;
+                amount     = Number(amount.split('-')[2]) * 100;
+                let handler = PaystackPop.setup({
+                  key   : 'pk_test_771a64a623b6e0646ef5e8b8c99c3dce2a69c8af', // Replace with your public key
+                  email : document.getElementById("email_four").value,
+                  amount: amount,
+                  ref: 'primeadds-'+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+                  // label: "Optional string that replaces customer email"
+                  onClose: function(){
+                    alert('Window closed.');
+                  },
+                  callback: function(response){
+                    location.href = './verify.php?tref='+response.reference+"&txamount="+amount;
+                  }
+                });
+
+                handler.openIframe();
+              }
+
+          </script>
         </div>
 
 

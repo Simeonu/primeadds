@@ -29,7 +29,7 @@
     $res = json_decode($response, true);
     if($res['data']['status'] =='success' && $res['data']['amount'] == $txamount){
       echo "payment verified";
-      header("Location:./pages-create-add.php");
+      header("Location:./index.php");
     }else{
       echo "payment verification failed";
       header('Location: ./index.html');
