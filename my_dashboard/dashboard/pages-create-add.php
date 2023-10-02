@@ -382,15 +382,15 @@ session_start();
 
               <div class="col-md-12">
                 <input type="file" id="image_two" class="form-control" name="image_two" placeholder="upload your add image here" required>
-              </div>
+              </div>  <br> <br> <br>
 
               <div class="col-md-12 text-center">
                 <!-- <div class="loading">Loading</div> -->
                 <div class="response_two"></div>
                 <!-- <div class="sent-message">Your message has been sent. Thank you!</div> -->
-
                 <button type="submit" onclick="payWithPaystack()" class="btn btn-primary w-100"> Make Payment </button>
               </div>
+              
 
             </div>
           </form>
@@ -560,7 +560,7 @@ session_start();
 
                 <div class="col-md-12">
                   <input type="file" id="image_four" class="form-control" name="image_four" placeholder="upload your add image here" required>
-                </div>
+                </div> <br> <br> <br> <br> <br>
 
                 <!-- <div class="col-md-12">
                   <textarea class="form-control" name="message" rows="6" placeholder="Uplod add image" required></textarea>

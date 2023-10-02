@@ -17,7 +17,7 @@ if(isset($_SESSION['status'])){
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="index.css">
+<link rel="stylesheet" href="main.css">
 <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
 <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
 <link href="sign-up/img/my_logo.png" rel="icon">
@@ -38,11 +38,10 @@ if(isset($_SESSION['status'])){
         </div>
    
         <h2>Reset Password</h2>
-		<p>Please complete the process to reset your password!</p>
-		<hr>
+		<p>Please enter the email used for account creation!</p>
     
         <div class="form-group mb-3">
-        	<input type="text" class="form-control" name="email" id="email" placeholder="Enter your Email" required="required">
+        	<input type="text" class="form-control email_input" name="email" id="email" placeholder="Enter your Email" required="required">
         </div>
 
         <div class="reply"></div>

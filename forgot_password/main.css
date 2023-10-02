@@ -7,6 +7,10 @@ body {
     font-family: 'Roboto', sans-serif;
     overflow-y: hidden;
 }
+
+form{
+    height:350px;
+}
 .form-control{
     height: 40px;
     background: #e2e2e2;
@@ -128,4 +132,17 @@ body {
 
 .forgot_password a{
     margin-left:165px;
+}
+
+.email_input{
+    width: 100%;
+    /* color: red; */
+}
+
+.login_button button{
+    color: #fff;
+    height: 50px;
+    border-radius: 7px;
+    cursor: pointer;
+
 }
