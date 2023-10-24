@@ -390,7 +390,7 @@ $userInfo = $common->getUserByUserName($_SESSION['prime_adds_user']);
                     </div>
 
                     <div class="text-center">
-                      <button type="submit" class="save_changes">Save Changes</button>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
                     </div>
                   </form><!-- End Profile Edit Form -->
 

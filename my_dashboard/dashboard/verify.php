@@ -3,7 +3,7 @@
   $txref = $_GET['tref'];
   $txamount = $_GET['txamount'];
   
-  curl_setopt_array($curl, array(
+  curl_setopt_array($curl, array( 
     CURLOPT_URL => "https://api.paystack.co/transaction/verify/$txref",
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => "",
